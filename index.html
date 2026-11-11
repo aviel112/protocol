@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>פרוטוקול הקיץ — אביאל עמירה</title>
+<meta name="description" content="15 יום שמלמדים אתכם איך החיטוב באמת עובד. שיעור ביום בווטסאפ, מאביאל עמירה, WNBF Pro. 197 ₪.">
+<meta property="og:title" content="פרוטוקול הקיץ — הסוף לניחושים">
+<meta property="og:description" content="15 יום, שיעור ביום בווטסאפ. מאביאל עמירה, WNBF Pro.">
+<meta property="og:image" content="https://aviel112.github.io/protocol/img/hero-6.jpg">
+<meta name="theme-color" content="#0e0d0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Karantina:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0e0d0b;
+  --ground-2:#16140f;
+  --ink:#efe9dc;
+  --ink-2:#b9b0a0;
+  --gold:#c9a45c;
+  --gold-hi:#e2c787;
+  --gold-line:rgba(201,164,92,.38);
+  --danger:#e58a7a;
+  --display:"Karantina","Assistant",system-ui,sans-serif;
+  --body:"Assistant",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(20px,5vw,48px);
+  --measure:34rem;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 1.125rem/1.7 var(--body);-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--ground)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--ground)}
+::-webkit-scrollbar-thumb{background:#3a3326;border-radius:10px}
+a{color:var(--gold-hi);text-underline-offset:.25em}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px;border-radius:2px}
+img{max-width:100%;display:block}
+.wrap{padding-inline:var(--gutter);max-width:62rem;margin-inline:auto}
+.num{font-variant-numeric:tabular-nums lining-nums}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:.95;letter-spacing:0;margin:0;text-wrap:balance}
+h2{font-size:clamp(3rem,9vw,5rem);color:var(--ink)}
+h2 em{font-style:normal;color:var(--gold)}
+p{margin:0 0 1em;max-width:var(--measure);text-wrap:pretty}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;z-index:-2;filter:saturate(.75) contrast(1.05)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--ground) 8%,rgba(14,13,11,.86) 38%,rgba(14,13,11,.15) 72%,rgba(14,13,11,.55))}
+.hero .wrap{width:100%;padding-block:0 calc(2.5rem + env(safe-area-inset-bottom,0px))}
+.brand{position:absolute;top:calc(18px + env(safe-area-inset-top,0px));inset-inline:var(--gutter);display:flex;justify-content:space-between;align-items:center;font-size:.95rem;letter-spacing:.02em;color:var(--ink-2)}
+.brand b{color:var(--ink);font-weight:600}
+.hero h1{font-size:clamp(5rem,22vw,9.5rem);color:var(--ink)}
+.hero h1 span{color:var(--gold)}
+.hero .lede{font-size:clamp(1.15rem,3.6vw,1.35rem);color:var(--ink);margin:.9rem 0 1.4rem;max-width:26rem}
+.hero .lede strong{font-weight:600}
+.buy{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.price{font-family:var(--display);font-size:3.2rem;line-height:1;color:var(--gold-hi)}
+.price small{font-family:var(--body);font-size:.9rem;color:var(--ink-2);margin-inline-start:6px}
+.btn{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;background:var(--gold);color:#1a150c;font:700 1.15rem/1 var(--body);text-decoration:none;box-shadow:0 10px 24px -14px rgba(0,0,0,.9);transition:background .25s cubic-bezier(.16,1,.3,1),transform .25s cubic-bezier(.16,1,.3,1)}
+.btn:hover{background:var(--gold-hi)}
+.btn:active{transform:scale(.98)}
+.btn[aria-busy="true"]{opacity:.7;cursor:progress}
+.btn svg{width:20px;height:20px}
+
+/* sections */
+section{padding-block:clamp(4.5rem,12vw,8rem)}
+.rule{height:1px;background:var(--gold-line);border:0;margin:0}
+.story{display:grid;gap:2.2rem}
+.story h2{max-width:14ch}
+.story .text p{color:var(--ink-2)}
+.story .text p strong{color:var(--ink);font-weight:600}
+.story .turn{font-family:var(--display);font-size:clamp(2.2rem,6.5vw,3.4rem);line-height:1;color:var(--gold);margin-top:.6em;max-width:16ch}
+.pro{display:flex;gap:14px;align-items:center;margin-top:1.4rem;color:var(--ink-2);font-size:1rem}
+.pro i{flex:none;width:44px;height:1px;background:var(--gold)}
+
+/* guess vs know */
+.gk h2{margin-bottom:.4em}
+.gk .intro{color:var(--ink-2);margin-bottom:2.4rem}
+.myths{list-style:none;margin:0;padding:0;border-top:1px solid var(--gold-line);max-width:42rem}
+.myths li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:baseline;padding:1.15rem 0;border-bottom:1px solid var(--gold-line)}
+.myth{position:relative;color:var(--ink-2);font-size:1.1rem;justify-self:start}
+.myth::after{content:"";position:absolute;inset-inline:-2px;top:55%;height:2px;background:var(--danger);transform:scaleX(0);transform-origin:right;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.fix{grid-column:1/-1;font-weight:600;color:var(--ink);font-size:1.15rem;opacity:.6;transition:opacity .7s cubic-bezier(.16,1,.3,1) .25s}
+.day{font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--gold);grid-row:1;grid-column:2;white-space:nowrap}
+.myths li.on .myth::after{transform:scaleX(1)}
+.myths li.on .fix{opacity:1}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.myth::after,.fix,.sticky,summary svg,.btn{transition:none}}
+
+/* curriculum */
+.days{list-style:none;margin:2.2rem 0 0;padding:0;columns:2 17rem;column-gap:3rem}
+.days li{break-inside:avoid;display:flex;gap:14px;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed rgba(201,164,92,.22)}
+.days b{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--gold);min-width:2.2ch;text-align:center}
+.days span{color:var(--ink)}
+.how{margin-top:3rem;display:grid;gap:.4rem;color:var(--ink-2)}
+.how p{margin:0}
+.how strong{color:var(--ink);font-weight:600}
+
+/* receipt */
+.receipt{background:var(--ground-2);border:1px solid var(--gold-line);border-radius:4px;padding:clamp(1.6rem,5vw,3rem);max-width:40rem;margin-inline:auto}
+.receipt h2{text-align:center;font-size:clamp(3rem,10vw,4.4rem)}
+.receipt .sub{text-align:center;color:var(--ink-2);margin:.5rem auto 2rem}
+.lines{list-style:none;margin:0;padding:0}
+.lines{counter-reset:ln}
+.lines li{counter-increment:ln;display:grid;grid-template-columns:auto auto 1fr auto;column-gap:10px;align-items:baseline;padding:.55rem 0}
+.lines li::before{content:counter(ln,decimal-leading-zero);font-variant-numeric:tabular-nums;color:var(--gold);font-size:.85rem}
+.lines .item{font-weight:600}
+.lines .lead{border-bottom:1px dotted rgba(201,164,92,.5);transform:translateY(-.3em);min-width:1.5rem}
+.lines .val{color:var(--gold-hi);font-size:.95rem}
+.nw{white-space:nowrap}
+.lines small{grid-column:2/-1;color:var(--ink-2);font-size:.92rem;line-height:1.45}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--gold);margin-top:1.2rem;padding-top:1rem}
+.total span{font-size:1.15rem;font-weight:600}
+.total b{font-family:var(--display);font-size:3.6rem;line-height:1;color:var(--gold-hi)}
+
+/* form */
+form{margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:.95rem;color:var(--ink-2)}
+input{width:100%;min-height:52px;padding:0 14px;border-radius:4px;border:1px solid rgba(201,164,92,.35);background:#0b0a08;color:var(--ink);font:400 1.1rem var(--body);caret-color:var(--gold-hi);transition:border-color .2s}
+input::placeholder{color:#8b8374}
+input:hover{border-color:rgba(201,164,92,.6)}
+input:focus{outline:2px solid var(--gold-hi);outline-offset:1px;border-color:var(--gold-hi)}
+input[aria-invalid="true"]{border-color:var(--danger)}
+.err{min-height:1.2em;font-size:.9rem;color:var(--danger)}
+form .btn{grid-column:1/-1;width:100%;margin-top:.4rem}
+.note{grid-column:1/-1;text-align:center;font-size:.9rem;color:var(--ink-2);margin:0;max-width:none}
+.done{text-align:center;padding:1.4rem 0 .4rem}
+.done h3{font-size:2.8rem;color:var(--gold-hi);margin-bottom:.4rem}
+.done p{margin-inline:auto;color:var(--ink-2)}
+
+/* faq */
+.faq{max-width:40rem;margin-inline:auto}
+.faq h2{font-size:clamp(2.6rem,8vw,3.6rem);margin-bottom:1.2rem}
+details{border-bottom:1px solid var(--gold-line);padding:1rem 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:1.1rem}
+summary::-webkit-details-marker{display:none}
+summary svg{flex:none;width:20px;height:20px;color:var(--gold);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+details[open] summary svg{transform:rotate(45deg)}
+details p{color:var(--ink-2);margin:.7rem 0 0}
+
+footer{padding-block:3rem calc(3rem + env(safe-area-inset-bottom,0px));text-align:center;color:var(--ink-2);font-size:.95rem}
+.sticky{position:fixed;inset-inline:0;bottom:0;z-index:5;padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom,0px));background:rgba(14,13,11,.92);border-top:1px solid var(--gold-line);display:flex;align-items:center;justify-content:space-between;gap:12px;transform:translateY(110%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sticky.show{transform:none}
+.sticky .p{font-family:var(--display);font-size:2rem;line-height:1;color:var(--gold-hi)}
+.sticky .btn{min-height:48px;padding:0 22px;font-size:1.05rem}
+
+@media (min-width:860px){
+  .hero{align-items:center}
+  .hero img{inset-inline-start:auto;width:46%;object-position:50% 30%}
+  .hero::after{background:linear-gradient(to left,var(--ground) 50%,rgba(14,13,11,.6) 60%,rgba(14,13,11,0) 80%)}
+  .hero .wrap{padding-block:6rem;max-width:72rem}
+  .hero .wrap>*{max-width:34rem}
+  .story{grid-template-columns:1fr 1.1fr;align-items:start}
+  .sticky{display:none}
+}
+@media (max-width:420px){
+  form{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img id="hero-img" alt="אביאל עמירה" fetchpriority="high">
+  <script>
+var HERO_TEST = ['2', '3', '4', '6'];
+var heroPick = new URLSearchParams(location.search).get('h');
+if (!/^([1-9]|10)$/.test(heroPick || '')) {
+  try { heroPick = localStorage.getItem('hero'); } catch (_) {}
+  if (!HERO_TEST.includes(heroPick)) heroPick = HERO_TEST[Math.floor(Math.random() * HERO_TEST.length)];
+  try { localStorage.setItem('hero', heroPick); } catch (_) {}
+}
+document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
+  </script>
+  <div class="brand"><span><b>אביאל עמירה</b> · WNBF Pro</span><span>פרוטוקול הקיץ</span></div>
+  <div class="wrap">
+    <h1>הסוף<br><span>לניחושים.</span></h1>
+    <p class="lede"><strong>פרוטוקול הקיץ</strong>: 15 יום שבהם תבינו איך החיטוב באמת עובד, ותדעו לנהל אותו לבד. שיעור אחד בכל בוקר, ישר לווטסאפ.</p>
+    <div class="buy">
+      <a class="btn" href="#join">אני בפנים
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </a>
+      <span class="price num">197 ₪<small>תשלום אחד</small></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap story" aria-labelledby="story-h">
+    <h2 id="story-h">גם אני הייתי <em>שם.</em></h2>
+    <div class="text">
+      <p>ניסיתם דיאטה מהאינסטגרם, עם תפריט קבוע שאף אחד לא שאל אם הוא מתאים לחיים שלכם. ניסיתם "להיכנס 100 אחוז": בלי סוכר, בלי פחמימה, בלי יציאות. ואולי פגשתם מומחה שדיבר בנוסחאות ולא הסביר אף אחת מהן.</p>
+      <p><strong>אני מכיר את התסכול הזה, כי גם אני הייתי שם</strong>, לפני שהבנתי איך זה באמת עובד.</p>
+      <p class="turn">הבעיה לא הייתה בכם. הבעיה הייתה השיטה.</p>
+      <p>ניחשתם כמה לאכול במקום לדעת. וכשמנחשים, או שמגזימים ונשברים, או שממעיטים, לא רואים תוצאה ומתייאשים.</p>
+      <div class="pro"><i></i>אביאל עמירה · מתחרה פיתוח גוף טבעי, WNBF Pro</div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="wrap gk" aria-labelledby="gk-h">
+    <h2 id="gk-h">מה שניחשתם. <em>מה שתדעו.</em></h2>
+    <p class="intro">כל ניחוש מהרשימה הזאת מקבל בקורס יום משלו, עם המספרים המדויקים.</p>
+    <ul class="myths">
+      <li><span class="myth">"לנחש כמה קלוריות לאכול"</span><span class="day num">יום 5</span><span class="fix">לחשב כמו PRO: ‏LBM ו־TDEE שלכם, בלי נוסחאות סתומות</span></li>
+      <li><span class="myth">"לאכול כמה שפחות"</span><span class="day num">יום 6</span><span class="fix">קלוריות הן תקציב: מחלקים אותו לחלבון, שומן ופחמימה</span></li>
+      <li><span class="myth">"להיות רעבים כל היום"</span><span class="day num">יום 7</span><span class="fix">נפח מזון: אותן קלוריות, צלחת מלאה</span></li>
+      <li><span class="myth">"להישבר מול המתוק"</span><span class="day num">יום 8</span><span class="fix">ניהול חשקים: איך לנצח את הדחף בלי לשבור את הכלים</span></li>
+      <li><span class="myth">"המשקל נתקע, אז מורידים עוד"</span><span class="day num">יום 11</span><span class="fix">אסטרטגיית ה־Refeed</span></li>
+      <li><span class="myth">"לוותר על מסעדות וחברים"</span><span class="day num">יום 12</span><span class="fix">המדריך למסעדות: לצאת, ליהנות ולהישאר בתקציב</span></li>
+      <li><span class="myth">"לעלות הכל בחזרה בסוף"</span><span class="day num">יום 13</span><span class="fix">אסטרטגיית היציאה: לשמור על ההישג</span></li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <section class="wrap" aria-labelledby="days-h">
+    <h2 id="days-h">16 שיעורים. <em>יום אחרי יום.</em></h2>
+    <ol class="days">
+      <li><b class="num">0</b><span>למה זה לא עבד לכם עד היום</span></li>
+      <li><b class="num">1</b><span>הפיזיקה של החיטוב</span></li>
+      <li><b class="num">2</b><span>מערכת הבקרה של המקצוענים</span></li>
+      <li><b class="num">3</b><span>חסינות סביבתית</span></li>
+      <li><b class="num">4</b><span>לאן הולכות הקלוריות?</span></li>
+      <li><b class="num">5</b><span>לחשב כמו PRO</span></li>
+      <li><b class="num">6</b><span>ניהול תקציב אנרגטי</span></li>
+      <li><b class="num">7</b><span>אסטרטגיית נפח מזון</span></li>
+      <li><b class="num">8</b><span>ניהול חשקים</span></li>
+      <li><b class="num">9</b><span>אימונים: לשמור על הברזל</span></li>
+      <li><b class="num">10</b><span>סטרס ושינה</span></li>
+      <li><b class="num">11</b><span>אסטרטגיית ה־Refeed</span></li>
+      <li><b class="num">12</b><span>חיים חברתיים בחיטוב</span></li>
+      <li><b class="num">13</b><span>אסטרטגיית היציאה</span></li>
+      <li><b class="num">14</b><span>ניהול משברים</span></li>
+      <li><b class="num">15</b><span>הגרסה החדשה שלכם</span></li>
+    </ol>
+    <div class="how">
+      <p><strong>איך זה עובד:</strong> משלמים, ומיד מקבלים בווטסאפ את פרק הפתיחה. מחר בבוקר מגיע יום 1.</p>
+      <p>כל בוקר מגיע שיעור וידאו קצר, 2 עד 4 דקות, עם משימה אחת ליום. רואים אותו בטלפון, מתי שנוח.</p>
+    </div>
+  </section>
+
+  <section class="wrap" id="join" aria-labelledby="join-h">
+    <div class="receipt">
+      <h2 id="join-h">מה מקבלים</h2>
+      <p class="sub">הכול נשלח אליכם בווטסאפ.</p>
+      <ul class="lines">
+        <li><span class="item">16 שיעורי וידאו</span><span class="lead"></span><span class="val">כלול</span><small>פרק פתיחה ו־15 ימים</small></li>
+        <li><span class="item">שיעור ביום בווטסאפ</span><span class="lead"></span><span class="val">כלול</span><small>15 בקרים ברצף</small></li>
+        <li><span class="item">מדריכי בונוס ב־PDF</span><span class="lead"></span><span class="val">כלול</span><small><span class="nw">מעקב התקדמות ·</span> <span class="nw">העגלה המנצחת ·</span> <span class="nw">אלכוהול ויציאות ·</span> <span class="nw">שישי ואלכוהול ·</span> <span class="nw">50 גוונים של חלבון ·</span> <span class="nw">חופשה ·</span> <span class="nw">היום שאחרי</span></small></li>
+        <li><span class="item">גיליון מעקב</span><span class="lead"></span><span class="val">כלול</span><small>שקילות, היקפים ויעדים</small></li>
+        <li><span class="item">קבוצת ווטסאפ לשאלות</span><span class="lead"></span><span class="val">כלול</span><small>אני עונה לכולם</small></li>
+      </ul>
+      <div class="total"><span>סה״כ</span><b class="num">197 ₪</b></div>
+
+      <form id="lead" novalidate>
+        <div class="field"><label for="fn">שם פרטי</label><input id="fn" name="first" autocomplete="given-name" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="ln">שם משפחה</label><input id="ln" name="last" autocomplete="family-name" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="age">גיל</label><input id="age" name="age" inputmode="numeric" maxlength="2" required><span class="err" aria-live="polite"></span></div>
+        <div class="field"><label for="ph">טלפון</label><input id="ph" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-0000000" dir="ltr" required><span class="err" aria-live="polite"></span></div>
+        <button class="btn" type="submit">להמשך לתשלום · 197 ₪</button>
+        <p class="note">התשלום מאובטח בכרטיס אשראי דרך ישראכרט</p>
+      </form>
+      <div class="done" id="done" hidden>
+        <h3>קיבלתי.</h3>
+        <p id="done-msg">מעביר אתכם לתשלום…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap faq" aria-labelledby="faq-h">
+    <h2 id="faq-h">שאלות</h2>
+    <details><summary>מתי מתחילים?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>מיד אחרי התשלום מגיע אליכם פרק הפתיחה בווטסאפ, ולמחרת בבוקר יום 1.</p></details>
+    <details><summary>כמה זמן לוקח כל יום?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>כל שיעור הוא 2 עד 4 דקות, ואחריו משימה אחת קצרה.</p></details>
+    <details><summary>למי זה מתאים?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>לגברים ולנשים שכבר ניסו דיאטות ונשברו. בפרוטוקול לומדים לחשב את המספרים לפי הגוף שלכם, אז הוא מתאים לכל נקודת התחלה.</p></details>
+    <details><summary>יש שאלה שלא מופיעה כאן?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>כתבו לי באינסטגרם, <a href="https://instagram.com/avielife1">‎@avielife1</a>.</p></details>
+  </section>
+</main>
+
+<footer>פרוטוקול הקיץ · אביאל עמירה · WNBF Pro</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <span class="p num">197 ₪</span>
+  <a class="btn" href="#join" tabindex="-1">אני בפנים</a>
+</div>
+
+<script>
+const PAY_URL = 'https://pay360.isracard.co.il/CustomerPayment/GenericURL?SaleId=0214b12a-4da9-12df-5b67-ca17c1c9e95c';
+
+const LEAD_URL = 'https://script.google.com/macros/s/AKfycbxSkxJJ1ODs067IOfDkuosXzKX-pVi2W7uTcWKAS-7YFuh8PW9mrjSS8bNC4SaiRTkP/exec';
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+}), { rootMargin: '0px 0px -35% 0px' });
+document.querySelectorAll('.myths li').forEach(li => io.observe(li));
+
+const sticky = document.getElementById('sticky');
+const hero = document.querySelector('.hero');
+const join = document.getElementById('join');
+let heroOut = false, joinIn = false;
+const sync = () => sticky.classList.toggle('show', heroOut && !joinIn);
+new IntersectionObserver(([e]) => { heroOut = !e.isIntersecting; sync(); }).observe(hero);
+new IntersectionObserver(([e]) => { joinIn = e.isIntersecting; sync(); }).observe(join);
+
+const form = document.getElementById('lead');
+const rules = {
+  first: v => v.trim().length >= 2 || 'כתבו שם פרטי',
+  last: v => v.trim().length >= 2 || 'כתבו שם משפחה',
+  age: v => (/^\d{2}$/.test(v.trim()) && +v >= 14 && +v <= 90) || 'כתבו גיל במספרים',
+  phone: v => /^0\d{8,9}$/.test(v.replace(/[\s-]/g, '')) || 'מספר טלפון ישראלי, למשל 050-1234567'
+};
+const check = el => {
+  const r = rules[el.name](el.value);
+  const err = el.parentElement.querySelector('.err');
+  const bad = r !== true;
+  el.setAttribute('aria-invalid', bad);
+  err.textContent = bad ? r : '';
+  return !bad;
+};
+form.querySelectorAll('input').forEach(el => el.addEventListener('input', () => {
+  if (el.getAttribute('aria-invalid') === 'true') check(el);
+}));
+
+form.addEventListener('submit', async ev => {
+  ev.preventDefault();
+  const fields = [...form.querySelectorAll('input')];
+  const ok = fields.map(check).every(Boolean);
+  if (!ok) { fields.find(f => f.getAttribute('aria-invalid') === 'true').focus(); return; }
+  const btn = form.querySelector('button');
+  btn.setAttribute('aria-busy', 'true');
+  btn.textContent = 'שולח…';
+  const d = Object.fromEntries(new FormData(form));
+  const payload = {
+    api: 'lead',
+    funnel: 'summer-protocol',
+    name: `${d.first.trim()} ${d.last.trim()}`,
+    phone: d.phone.replace(/[\s-]/g, ''),
+    age: d.age.trim(),
+    notes: `פרוטוקול הקיץ — עבר לתשלום 197 ₪ · תמונה ${heroPick}`
+  };
+  try {
+    await fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload) });
+  } catch (_) {}
+  form.hidden = true;
+  const done = document.getElementById('done');
+  done.hidden = false;
+  if (PAY_URL) {
+    setTimeout(() => { location.href = PAY_URL; }, 900);
+  } else {
+    document.getElementById('done-msg').textContent = 'אחזור אליכם בווטסאפ עם קישור התשלום בהקדם.';
+  }
+});
+</script>
+</body>
+</html>
