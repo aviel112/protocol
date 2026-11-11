@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>משוב על פרוטוקול הקיץ</title>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Karantina:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#0e0d0b;--ink:#efe9dc;--ink-2:#b9b0a0;--gold:#c9a45c;--gold-hi:#e2c787;--line:rgba(201,164,92,.38)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 1.05rem/1.7 "Assistant",system-ui,sans-serif;padding:2.5rem 1.25rem}
+main{max-width:34rem;margin:0 auto}
+h1{font:700 3.4rem/1 "Karantina",sans-serif;color:var(--gold-hi);margin:0 0 .4rem}
+p{color:var(--ink-2);margin:0 0 1.6rem}
+label{display:block;font-weight:600;margin-bottom:.4rem}
+textarea,input{width:100%;background:#0b0a08;color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:.8rem;font:inherit}
+textarea{min-height:6rem;resize:vertical}
+.q{margin-bottom:1.4rem}
+.scale{display:flex;gap:6px;flex-wrap:wrap}
+.scale label{font-weight:400;display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:4px;padding:.5rem .7rem;cursor:pointer;margin:0}
+.scale input{width:auto}
+button{width:100%;min-height:54px;border:0;border-radius:999px;background:var(--gold);color:#1a150c;font:700 1.1rem "Assistant",sans-serif;cursor:pointer}
+.done{display:none;text-align:center;padding:2rem 0}
+.done h2{font:700 2.8rem "Karantina",sans-serif;color:var(--gold-hi)}
+</style>
+</head>
+<body>
+<main>
+  <form id="fb" novalidate>
+    <h1>איך היה?</h1>
+    <p>שלוש שאלות קצרות, ורק אתם רואים את התשובות. זה עוזר לי לדייק את הקורס הבא.</p>
+    <div class="q"><label for="fn">שם פרטי</label><input id="fn" name="name" required></div>
+    <div class="q"><label>איך הייתה החוויה בסך הכל? (1 עד 5)</label>
+      <div class="scale">
+        <label><input type="radio" name="score" value="1" required>1</label>
+        <label><input type="radio" name="score" value="2">2</label>
+        <label><input type="radio" name="score" value="3">3</label>
+        <label><input type="radio" name="score" value="4">4</label>
+        <label><input type="radio" name="score" value="5">5</label>
+      </div>
+    </div>
+    <div class="q"><label for="best">מה הכי עזר לכם?</label><textarea id="best" name="best"></textarea></div>
+    <div class="q"><label for="more">מה חסר לכם, או מה הייתם רוצים שאוסיף?</label><textarea id="more" name="more"></textarea></div>
+    <button type="submit">שליחה</button>
+  </form>
+  <div class="done" id="done"><h2>תודה.</h2><p>קראתי כל תשובה.</p></div>
+</main>
+<script>
+const LEAD_URL = 'https://script.google.com/macros/s/AKfycbxSkxJJ1ODs067IOfDkuosXzKX-pVi2W7uTcWKAS-7YFuh8PW9mrjSS8bNC4SaiRTkP/exec';
+document.getElementById('fb').addEventListener('submit', async e => {
+  e.preventDefault();
+  const f = e.target;
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  const d = Object.fromEntries(new FormData(f));
+  try {
+    await fetch(LEAD_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify({ api: 'lead', funnel: 'protocol-feedback', name: d.name, notes: `ציון ${d.score} · הכי עזר: ${d.best} · חסר: ${d.more}` }) });
+  } catch (_) {}
+  f.hidden = true;
+  document.getElementById('done').style.display = 'block';
+});
+</script>
+</body>
+</html>

@@ -262,6 +262,7 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
         <div class="field"><label for="fn">שם פרטי</label><input id="fn" name="first" autocomplete="given-name" required><span class="err" aria-live="polite"></span></div>
         <div class="field"><label for="ln">שם משפחה</label><input id="ln" name="last" autocomplete="family-name" required><span class="err" aria-live="polite"></span></div>
         <div class="field"><label for="age">גיל</label><input id="age" name="age" inputmode="numeric" maxlength="2" required><span class="err" aria-live="polite"></span></div>
+        <div class="field full"><label for="em">אימייל (לקבלה)</label><input id="em" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com" dir="ltr" required><span class="err" aria-live="polite"></span></div>
         <div class="field"><label for="ph">טלפון</label><input id="ph" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-0000000" dir="ltr" required><span class="err" aria-live="polite"></span></div>
         <button class="btn" type="submit">להמשך לתשלום · 197 ₪</button>
         <p class="note">התשלום מאובטח בכרטיס אשראי דרך ישראכרט</p>
@@ -310,6 +311,7 @@ new IntersectionObserver(([e]) => { joinIn = e.isIntersecting; sync(); }).observ
 const form = document.getElementById('lead');
 const rules = {
   first: v => v.trim().length >= 2 || 'כתבו שם פרטי',
+  email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'כתבו כתובת מייל תקינה',
   last: v => v.trim().length >= 2 || 'כתבו שם משפחה',
   age: v => (/^\d{2}$/.test(v.trim()) && +v >= 14 && +v <= 90) || 'כתבו גיל במספרים',
   phone: v => /^0\d{8,9}$/.test(v.replace(/[\s-]/g, '')) || 'מספר טלפון ישראלי, למשל 050-1234567'
@@ -340,6 +342,7 @@ form.addEventListener('submit', async ev => {
     funnel: 'summer-protocol',
     name: `${d.first.trim()} ${d.last.trim()}`,
     phone: d.phone.replace(/[\s-]/g, ''),
+    email: d.email.trim(),
     age: d.age.trim(),
     notes: `פרוטוקול הקיץ — עבר לתשלום 197 ₪ · תמונה ${heroPick}`
   };
