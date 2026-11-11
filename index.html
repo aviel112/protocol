@@ -94,6 +94,15 @@ section{padding-block:clamp(4.5rem,12vw,8rem)}
 .days li{break-inside:avoid;display:flex;gap:14px;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed rgba(201,164,92,.22)}
 .days b{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--gold);min-width:2.2ch;text-align:center}
 .days span{color:var(--ink)}
+.clip{width:100%;max-width:320px;aspect-ratio:9/16;height:auto;border-radius:6px;border:1px solid var(--gold-line);background:#000;display:block;margin-bottom:1.6rem}
+.how-one{color:var(--ink-2);margin:1rem 0 1.2rem}
+.how-one strong{color:var(--ink);font-weight:600}
+.all-days{border-top:1px solid var(--gold-line);border-bottom:1px solid var(--gold-line);padding:1rem 0}
+.all-days summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font-weight:600;font-size:1.1rem}
+.all-days summary::-webkit-details-marker{display:none}
+.all-days summary svg{width:20px;height:20px;color:var(--gold)}
+.all-days[open] summary svg{transform:rotate(45deg)}
+.all-days .days{margin-top:1rem}
 .how{margin-top:3rem;display:grid;gap:.4rem;color:var(--ink-2)}
 .how p{margin:0}
 .how strong{color:var(--ink);font-weight:600}
@@ -193,10 +202,9 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
   <section class="wrap story" aria-labelledby="story-h">
     <h2 id="story-h">גם אני הייתי <em>שם.</em></h2>
     <div class="text">
-      <p>ניסיתם דיאטה מהאינסטגרם, עם תפריט קבוע שאף אחד לא שאל אם הוא מתאים לחיים שלכם. ניסיתם "להיכנס 100 אחוז": בלי סוכר, בלי פחמימה, בלי יציאות. ואולי פגשתם מומחה שדיבר בנוסחאות ולא הסביר אף אחת מהן.</p>
-      <p><strong>אני מכיר את התסכול הזה, כי גם אני הייתי שם</strong>, לפני שהבנתי איך זה באמת עובד.</p>
+      <video class="clip" src="video/intro.mp4" poster="video/intro-poster.jpg" controls playsinline preload="none" width="720" height="1280" aria-label="אביאל מסביר למה זה לא עבד לכם עד היום"></video>
       <p class="turn">הבעיה לא הייתה בכם. הבעיה הייתה השיטה.</p>
-      <p>ניחשתם כמה לאכול במקום לדעת. וכשמנחשים, או שמגזימים ונשברים, או שממעיטים, לא רואים תוצאה ומתייאשים.</p>
+      <p>ניחשתם כמה לאכול במקום לדעת. בפרוטוקול מפסיקים לנחש.</p>
       <div class="pro"><i></i>אביאל עמירה · מתחרה פיתוח גוף טבעי, WNBF Pro</div>
     </div>
   </section>
@@ -210,9 +218,7 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
       <li><span class="myth">"לנחש כמה קלוריות לאכול"</span><span class="day num">יום 5</span><span class="fix">לחשב כמו PRO: ‏LBM ו־TDEE שלכם, בלי נוסחאות סתומות</span></li>
       <li><span class="myth">"לאכול כמה שפחות"</span><span class="day num">יום 6</span><span class="fix">קלוריות הן תקציב: מחלקים אותו לחלבון, שומן ופחמימה</span></li>
       <li><span class="myth">"להיות רעבים כל היום"</span><span class="day num">יום 7</span><span class="fix">נפח מזון: אותן קלוריות, צלחת מלאה</span></li>
-      <li><span class="myth">"להישבר מול המתוק"</span><span class="day num">יום 8</span><span class="fix">ניהול חשקים: איך לנצח את הדחף בלי לשבור את הכלים</span></li>
       <li><span class="myth">"המשקל נתקע, אז מורידים עוד"</span><span class="day num">יום 11</span><span class="fix">אסטרטגיית ה־Refeed</span></li>
-      <li><span class="myth">"לוותר על מסעדות וחברים"</span><span class="day num">יום 12</span><span class="fix">המדריך למסעדות: לצאת, ליהנות ולהישאר בתקציב</span></li>
       <li><span class="myth">"לעלות הכל בחזרה בסוף"</span><span class="day num">יום 13</span><span class="fix">אסטרטגיית היציאה: לשמור על ההישג</span></li>
     </ul>
   </section>
@@ -221,6 +227,8 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
 
   <section class="wrap" aria-labelledby="days-h">
     <h2 id="days-h">16 שיעורים. <em>יום אחרי יום.</em></h2>
+    <p class="how-one"><strong>איך זה עובד:</strong> משלמים, ומיד מגיע בווטסאפ פרק הפתיחה. מחר בבוקר יום 1, ומשם שיעור קצר כל בוקר, 2 עד 4 דקות, עם משימה אחת.</p>
+    <details class="all-days"><summary>לכל 16 השיעורים<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
     <ol class="days">
       <li><b class="num">0</b><span>למה זה לא עבד לכם עד היום</span></li>
       <li><b class="num">1</b><span>הפיזיקה של החיטוב</span></li>
@@ -239,10 +247,7 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
       <li><b class="num">14</b><span>ניהול משברים</span></li>
       <li><b class="num">15</b><span>הגרסה החדשה שלכם</span></li>
     </ol>
-    <div class="how">
-      <p><strong>איך זה עובד:</strong> משלמים, ומיד מקבלים בווטסאפ את פרק הפתיחה. מחר בבוקר מגיע יום 1.</p>
-      <p>כל בוקר מגיע שיעור וידאו קצר, 2 עד 4 דקות, עם משימה אחת ליום. רואים אותו בטלפון, מתי שנוח.</p>
-    </div>
+    </details>
   </section>
 
   <section class="wrap" id="join" aria-labelledby="join-h">
