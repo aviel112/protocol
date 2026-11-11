@@ -94,7 +94,11 @@ section{padding-block:clamp(4.5rem,12vw,8rem)}
 .days li{break-inside:avoid;display:flex;gap:14px;align-items:baseline;padding:.55rem 0;border-bottom:1px dashed rgba(201,164,92,.22)}
 .days b{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--gold);min-width:2.2ch;text-align:center}
 .days span{color:var(--ink)}
-.clip{width:100%;max-width:320px;aspect-ratio:9/16;height:auto;border-radius:6px;border:1px solid var(--gold-line);background:#000;display:block;margin-bottom:1.6rem}
+.clipbox{position:relative;margin:0 auto;width:100%;max-width:380px}
+.clip{width:100%;aspect-ratio:9/16;height:auto;border-radius:14px;border:1px solid var(--gold-line);background:#000;display:block;box-shadow:0 24px 50px -24px rgba(0,0,0,.9)}
+.from{position:absolute;top:14px;inset-inline-start:14px;z-index:1;background:rgba(14,13,11,.78);border:1px solid var(--gold-line);color:var(--gold-hi);font-size:.9rem;font-weight:600;padding:6px 12px;border-radius:999px;pointer-events:none}
+.story .pro{justify-content:center;margin-top:1.4rem}
+.story h2{text-align:center;margin-inline:auto}
 .how-one{color:var(--ink-2);margin:1rem 0 1.2rem}
 .how-one strong{color:var(--ink);font-weight:600}
 .all-days{border-top:1px solid var(--gold-line);border-bottom:1px solid var(--gold-line);padding:1rem 0}
@@ -200,13 +204,12 @@ document.getElementById('hero-img').src = `img/hero-${heroPick}.jpg`;
 
 <main>
   <section class="wrap story" aria-labelledby="story-h">
-    <h2 id="story-h">זה לא <em>באשמתכם.</em></h2>
-    <div class="text">
-      <video class="clip" src="video/intro.mp4" poster="video/intro-poster.jpg" controls playsinline preload="none" width="720" height="1280" aria-label="אביאל מסביר למה זה לא עבד לכם עד היום"></video>
-      <p class="turn">איך הגוף שלכם באמת עובד.</p>
-      <p>זה ההבדל בין עוד דיאטה לבין מיומנות שנשארת אצלכם לכל החיים.</p>
-      <div class="pro"><i></i>אביאל עמירה · מתחרה פיתוח גוף טבעי, WNBF Pro</div>
-    </div>
+    <h2 id="story-h">ככה אני מחלק <em>2,400 קלוריות.</em></h2>
+    <figure class="clipbox">
+      <span class="from">קטע מתוך הקורס · יום 6</span>
+      <video class="clip" src="video/calc.mp4" poster="video/calc-poster.jpg" controls playsinline preload="none" width="720" height="1280" aria-label="קטע מתוך יום 6 בקורס: אביאל מחלק 2,400 קלוריות לחלבון, שומן ופחמימה"></video>
+    </figure>
+    <div class="pro"><i></i>אביאל עמירה · מתחרה פיתוח גוף טבעי, WNBF Pro</div>
   </section>
 
   <hr class="rule">
